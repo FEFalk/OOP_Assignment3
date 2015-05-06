@@ -4,7 +4,7 @@ class IIntSet
 {
 public:
 	/* The constructor */
-	IInetSet() {}
+	IIntSet() {}
 
         /* Returns whether this set includes the element 'elem' or not. */
         bool Contains(int elem) = 0;
@@ -25,7 +25,7 @@ public:
 
 void main()
 {
-	IntSet *s1 = new BasicIntSet();
+	IIntSet *s1 = new BasicIntSet();
         s1->Add(10);
         s1->Add(12);
 
@@ -37,7 +37,7 @@ void main()
         s2->Add(101);
         s2->Add(102);
 
-	IInstSet *s3;
+	IIntSet *s3;
 	s3 = s1.Union(s2); 
 
 
