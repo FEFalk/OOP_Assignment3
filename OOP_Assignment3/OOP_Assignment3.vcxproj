@@ -79,7 +79,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="BasicIntSet.cpp" />
-    <ClCompile Include="IIntSet.cpp" />
     <ClCompile Include="IntervalIntSet.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="UnionIntSet.cpp" />
