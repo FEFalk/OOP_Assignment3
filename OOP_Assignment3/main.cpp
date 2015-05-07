@@ -2,6 +2,7 @@
 
 #include "BasicIntSet.h"
 #include "IntervalIntSet.h"
+#include "UnionIntSet.h"
 
 using namespace std;
 
