@@ -1,8 +1,10 @@
 #pragma once
 #include "IIntSet.h"
+#include "UnionIntSet.h"
+#include <string>
 #include <cstdlib>
 
-class BasicIntSet:IIntSet
+class BasicIntSet: public IIntSet
 {
 public:
 	BasicIntSet();
@@ -11,9 +13,13 @@ public:
 
 	void Add(int elem);
 	bool Contains(int elem);
+	char *ToString();
+	
+	IIntSet* Union(IIntSet &other);
 
 private:
-	int *BasicSetArray;
+	void PushNumberAt(int elem, int index);
+	int *basicSetArray;
 	int size;
 };
 

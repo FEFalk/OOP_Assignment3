@@ -1,8 +1,21 @@
 #pragma once
-class UnionIntSet
+#include "IIntSet.h"
+#include <string>
+
+class UnionIntSet : public IIntSet
 {
 public:
-	UnionIntSet();
+	UnionIntSet(IIntSet *first, IIntSet *second);
 	~UnionIntSet();
+
+	void Add(int elem);
+	bool Contains(int elem);
+	char *ToString();
+
+	IIntSet* Union(IIntSet &other);
+
+private:
+	IIntSet *first;
+	IIntSet *second;
 };
 
