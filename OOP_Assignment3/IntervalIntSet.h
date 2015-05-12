@@ -17,9 +17,11 @@ public:
 	bool Contains(int elem, int index);
 	void MergeIntervals(std::vector<Interval>::iterator it);
 	char *ToString();
-	int *ToArray();
 
 	IIntSet* Union(IIntSet &other);
+
+protected:
+	int *ToArray();
 
 private:
 	std::vector<Interval> intervalArray;

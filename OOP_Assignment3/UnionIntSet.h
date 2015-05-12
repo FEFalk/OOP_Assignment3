@@ -11,9 +11,11 @@ public:
 	void Add(int elem);
 	bool Contains(int elem);
 	char *ToString();
-	int *ToArray();
 
 	IIntSet* Union(IIntSet &other);
+
+protected:
+	int *ToArray();
 
 private:
 	IIntSet *first;

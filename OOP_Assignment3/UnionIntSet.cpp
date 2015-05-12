@@ -37,6 +37,7 @@ char *UnionIntSet::ToString()
 		newString.append(std::to_string(intervalArray[i].destination));
 		newString.append("] ");
 	}
+	first->ToArray();
 
 	char *ret = new char[newString.size() + 1];
 	stdext::checked_array_iterator<char *> chkd_test_array(ret, newString.size() + 1);
