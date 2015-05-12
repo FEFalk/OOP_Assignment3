@@ -7,20 +7,22 @@ public:
 	/* The constructor */
 	IIntSet() {}
 
-        /* Returns whether this set includes the element 'elem' or not. */
-        virtual bool Contains(int elem) = 0;
+	/* Returns whether this set includes the element 'elem' or not. */
+    virtual bool Contains(int elem) = 0;
 
-        /* Add the element 'elem' to this set. After the call, Contains(elem) will
-         * return true. */
-        virtual void Add(int elem) = 0;
+	/* Add the element 'elem' to this set. After the call, Contains(elem) will
+	* return true. */
+    virtual void Add(int elem) = 0;
 
-        /* Return a set that is the union of this set and 'other'. All elements contained
-         * in either this set or in 'other' will be contained in the resulting set. */
+	/* Return a set that is the union of this set and 'other'. All elements contained
+	* in either this set or in 'other' will be contained in the resulting set. */
 	virtual IIntSet* Union(IIntSet &other)=0;
 
-        /* Return an array of integers that contains all the individual values in this set. */
+	/* Return an array of integers that contains all the individual values in this set. */
 	virtual char* ToString()=0;
-		//Returns the pointer of the array
-	virtual int* ToArray() = 0;
+
+protected:
+	virtual int *ToArray() = 0;
+
 };
 #endif

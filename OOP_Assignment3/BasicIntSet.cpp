@@ -4,6 +4,7 @@ BasicIntSet::BasicIntSet()
 {
 	basicSetArray = NULL;
 }
+
 BasicIntSet::BasicIntSet(int size)
 {
 	basicSetArray = (int *) realloc(basicSetArray, size * sizeof(int));
@@ -47,6 +48,7 @@ void BasicIntSet::Add(int elem)
 		}
 	}
 }
+
 bool BasicIntSet::Contains(int elem)
 {
 	for (int i = 0; i < size; i++)
