@@ -37,26 +37,11 @@ IIntSet *UnionIntSet::Union(IIntSet &other)
 char *UnionIntSet::ToString()
 {
 	std::string newString;
-	int *firstArray = first->ToArray();
-	int *secondArray = second->ToArray();
-	int i=0, j=0;
-
-	while (i!=first->GetSize() || j!=second->GetSize())
+	int *unionArray=ToArray();
+	for (int i = 0; first->GetSize() + second->GetSize();i++)
 	{
-		if (firstArray[i] <= secondArray[j] && i<first->GetSize())
-		{
-			newString.append(std::to_string(firstArray[i]));
-			newString.append(", ");
-			i++;
-		}
-		else if (!ContainsInBoth(secondArray[j]))
-		{
-			newString.append(std::to_string(secondArray[j]));
-			newString.append(", ");
-			j++;
-		}
-		else
-			j++;
+		newString.append(std::to_string(unionArray[i]));
+		newString.append(", ");
 	}
 
 	char *ret = new char[newString.size() + 1];
@@ -65,4 +50,30 @@ char *UnionIntSet::ToString()
 	chkd_test_array[newString.size()] = '\0';
 
 	return ret;
+}
+
+int *UnionIntSet::ToArray()
+{
+	int *firstArray = first->ToArray();
+	int *secondArray = second->ToArray();
+
+	int *newArray = new int[first->GetSize() + second->GetSize()];
+
+	int i = 0, j = 0;
+
+	while (i != first->GetSize() || j != second->GetSize())
+	{
+		if (firstArray[i] <= secondArray[j] && i<first->GetSize())
+		{
+			newArray[i + j] = firstArray[i];
+			i++;
+		}
+		else if (!ContainsInBoth(secondArray[j]))
+		{
+			newArray[i + j] = secondArray[j];
+			j++;
+		}
+		else
+			j++;
+	}
 }

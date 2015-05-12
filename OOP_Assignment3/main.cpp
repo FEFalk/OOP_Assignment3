@@ -25,6 +25,9 @@ void main()
 		cout << endl << s1->ToString() << endl;
 	IIntSet *s3;
 	s3 = s1->Union(*s2);
+
+	IIntSet *s4;
+	s4 = s3->Union(*s2);
 	
 	cout << s3->ToString() << endl;
 
