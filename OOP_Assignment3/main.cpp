@@ -23,10 +23,10 @@ void main()
 		cout << s2->ToString();
 		cout << endl << s1->ToString() << endl;
 	IIntSet *s3;
+	//Union funktion
 	s3 = s1->Union(*s2);
 	
-
-        cout << s3->ToString();
+	cout << s3->ToString();
 
 	return;
 }

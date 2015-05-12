@@ -22,6 +22,10 @@ public:
 	/* Return an array of integers that contains all the individual values in this set. */
 	virtual char* ToString()=0;
 
+	virtual int GetSize() = 0;
+
+	friend class UnionIntSet;
+
 protected:
 	virtual int *ToArray() = 0;
 

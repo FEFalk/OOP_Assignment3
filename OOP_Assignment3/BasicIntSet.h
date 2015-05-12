@@ -16,6 +16,9 @@ public:
 	char *ToString();
 	
 	IIntSet* Union(IIntSet &other);
+	int GetSize();
+
+
 protected:
 	int *ToArray();
 

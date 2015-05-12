@@ -11,14 +11,16 @@ public:
 	void Add(int elem);
 	bool Contains(int elem);
 	char *ToString();
+	int GetSize(){ return 0; };
 
-	IIntSet* Union(IIntSet &other);
+	IIntSet* Union(IIntSet &other){ return 0; };
 
-protected:
-	int *ToArray();
 
 private:
 	IIntSet *first;
 	IIntSet *second;
+
+protected:
+	int *ToArray(){ return 0; };
 };
 

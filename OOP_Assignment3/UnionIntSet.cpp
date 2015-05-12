@@ -20,22 +20,36 @@ bool UnionIntSet::Contains(int elem)
 
 	return false;
 }
+void UnionIntSet::Add(int elem)
+{
+	//We want to add to both because of Union. So when separated they still contain the new elem.
+	if (Contains(elem))
+	{
+		first->Add(elem);
+		second->Add(elem);
+	}
+}
 
 char *UnionIntSet::ToString()
 {
 	std::string newString;
+	int *firstArray = first->ToArray();
+	int *secondArray = second->ToArray();
+	int i=0, j=0;
 
-	newString.append(first->ToString);
-	newString.append(second->ToString);
-
-	for (int i = 0; i < intervalArray.size(); i++)
+	while (i!=first->GetSize() || j!=second->GetSize())
 	{
-		if (first->Contains)
-		newString.append("[");
-		newString.append(std::to_string(intervalArray[i].start));
-		newString.append("..");
-		newString.append(std::to_string(intervalArray[i].destination));
-		newString.append("] ");
+		if (firstArray[i] <= secondArray[j] && i<first->GetSize()){
+			newString.append(std::to_string(firstArray[i]));
+			newString.append(", ");
+			i++;
+		}
+		else
+		{
+			newString.append(std::to_string(secondArray[j]));
+			newString.append(", ");
+			j++;
+		}
 	}
 	first->ToArray();
 

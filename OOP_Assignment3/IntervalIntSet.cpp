@@ -109,15 +109,24 @@ int *IntervalIntSet::ToArray()
 {
 	int j = 0;
 	int *newArray = new int[];
-	for (int  i = 0; i < intervalArray.size(); i++)
+	for (unsigned  i = 0; i < intervalArray.size(); i++)
 	{
 		for (int n = intervalArray[i].start; n <= intervalArray[i].destination; n++)
 		{
 			j++;
-			newArray = (int *)realloc(newArray, j);
-			newArray[j] = n;
-			
+			newArray = (int *)realloc(newArray, sizeof(int)*j);
+			newArray[j-1] = n;
+			individualSize = j;
 		}
 	}
 	return newArray;
+}
+
+int IntervalIntSet::GetSize()
+{
+	return individualSize;
+}
+IIntSet *IntervalIntSet::Union(IIntSet &other)
+{
+	return new UnionIntSet((IIntSet *)this, &other);
 }
