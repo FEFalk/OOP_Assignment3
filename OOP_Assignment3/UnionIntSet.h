@@ -11,10 +11,10 @@ public:
 	void Add(int elem);
 	bool Contains(int elem);
 	char *ToString();
-	
+
 
 	IIntSet* Union(IIntSet &other);
-	
+
 
 private:
 	IIntSet *first;
