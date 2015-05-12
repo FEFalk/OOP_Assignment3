@@ -30,6 +30,19 @@ void UnionIntSet::Add(int elem)
 	}
 }
 
+bool UnionIntSet::ContainsInBoth(int elem)
+{
+	if (first->Contains(elem) && second->Contains(elem))
+		return true;
+
+	return false;
+}
+
+IIntSet *UnionIntSet::Union(IIntSet &other)
+{
+	return new UnionIntSet((IIntSet *)this, &other);
+}
+
 char *UnionIntSet::ToString()
 {
 	std::string newString;
@@ -39,17 +52,20 @@ char *UnionIntSet::ToString()
 
 	while (i!=first->GetSize() || j!=second->GetSize())
 	{
-		if (firstArray[i] <= secondArray[j] && i<first->GetSize()){
+		if (firstArray[i] <= secondArray[j] && i<first->GetSize())
+		{
 			newString.append(std::to_string(firstArray[i]));
 			newString.append(", ");
 			i++;
 		}
-		else
+		else if (!ContainsInBoth(secondArray[j]))
 		{
 			newString.append(std::to_string(secondArray[j]));
 			newString.append(", ");
 			j++;
 		}
+		else
+			j++;
 	}
 	first->ToArray();
 

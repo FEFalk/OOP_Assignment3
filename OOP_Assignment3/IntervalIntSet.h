@@ -1,5 +1,6 @@
 #pragma once
 #include "IIntSet.h"
+#include "UnionIntSet.h"
 #include "Structs.h"
 #include <iterator>
 #include <string>

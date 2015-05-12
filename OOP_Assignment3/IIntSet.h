@@ -17,10 +17,10 @@ public:
 
 	/* Return a set that is the union of this set and 'other'. All elements contained
 	* in either this set or in 'other' will be contained in the resulting set. */
-	virtual IIntSet* Union(IIntSet &other)=0;
+	virtual IIntSet* Union(IIntSet &other) = 0;
 
 	/* Return an array of integers that contains all the individual values in this set. */
-	virtual char* ToString()=0;
+	virtual char* ToString() = 0;
 
 	virtual int GetSize() = 0;
 

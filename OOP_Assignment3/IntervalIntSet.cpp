@@ -69,7 +69,7 @@ bool IntervalIntSet::Contains(int elem)
 
 bool IntervalIntSet::Contains(int elem, int index)
 {
-	return (elem > intervalArray[index].start && elem <= intervalArray[index].destination);
+	return (elem >= intervalArray[index].start && elem <= intervalArray[index].destination);
 }
 
 void IntervalIntSet::MergeIntervals(std::vector<Interval>::iterator it)
@@ -102,7 +102,7 @@ char *IntervalIntSet::ToString()
 
 IIntSet *IntervalIntSet::Union(IIntSet &other)
 {
-	return &other;
+	return new UnionIntSet((IIntSet *)this, &other);
 }
 
 int *IntervalIntSet::ToArray()

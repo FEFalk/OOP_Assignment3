@@ -11,7 +11,8 @@ void main()
 	IIntSet *s1 = new BasicIntSet();
         s1->Add(10);
         s1->Add(12);
-		
+		s1->Add(20);
+
         IIntSet *s2 = new IntervalIntSet();
         s2->Add(20);
         s2->Add(21);
@@ -26,7 +27,7 @@ void main()
 	//Union funktion
 	s3 = s1->Union(*s2);
 	
-	cout << s3->ToString();
+	cout << s3->ToString() << endl;
 
 	return;
 }

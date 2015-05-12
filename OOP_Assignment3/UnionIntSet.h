@@ -10,13 +10,15 @@ public:
 
 	void Add(int elem);
 	bool Contains(int elem);
+	
 	char *ToString();
 	int GetSize(){ return 0; };
 
-	IIntSet* Union(IIntSet &other){ return 0; };
+	IIntSet* Union(IIntSet &other);
 
 
 private:
+	bool ContainsInBoth(int elem);
 	IIntSet *first;
 	IIntSet *second;
 
