@@ -25,8 +25,7 @@ void main()
 	IIntSet *s3;
 	s3 = s1->Union(*s2);
 	
-
-        cout << s3->ToString();
+	cout << s3->ToString();
 
 	return;
 }

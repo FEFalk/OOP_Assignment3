@@ -26,11 +26,11 @@ char *UnionIntSet::ToString()
 	std::string newString;
 	int *firstArray = first->ToArray();
 	int *secondArray = second->ToArray();
-	int i, j;
+	int i=0, j=0;
 
-	while (firstArray[i] != 0 && secondArray[j] != 0)
+	while (i!=first->GetSize() || j!=second->GetSize())
 	{
-		if (firstArray[i] >= secondArray[j]){
+		if (firstArray[i] <= secondArray[j] && i<first->GetSize()){
 			newString.append(std::to_string(firstArray[i]));
 			newString.append(", ");
 			i++;
@@ -49,9 +49,4 @@ char *UnionIntSet::ToString()
 	chkd_test_array[newString.size()] = '\0';
 
 	return ret;
-}
-
-int *UnionIntSet::ToArray()
-{
-
 }

@@ -97,3 +97,8 @@ IIntSet *BasicIntSet::Union(IIntSet &other)
 {
 	return new UnionIntSet((IIntSet *)this, &other);
 }
+
+int BasicIntSet::GetSize()
+{
+	return size;
+}

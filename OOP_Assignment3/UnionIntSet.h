@@ -8,12 +8,12 @@ public:
 	UnionIntSet(IIntSet *first, IIntSet *second);
 	~UnionIntSet();
 
-	void Add(int elem);
+	void Add(int elem){};
 	bool Contains(int elem);
 	char *ToString();
+	int GetSize(){ return 0; };
 
-
-	IIntSet* Union(IIntSet &other);
+	IIntSet* Union(IIntSet &other){ return 0; };
 
 
 private:
@@ -21,6 +21,6 @@ private:
 	IIntSet *second;
 
 protected:
-	int *ToArray();
+	int *ToArray(){ return 0; };
 };
 
