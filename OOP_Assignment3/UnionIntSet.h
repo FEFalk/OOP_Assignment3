@@ -12,7 +12,7 @@ public:
 	bool Contains(int elem);
 	
 	char *ToString();
-	int GetSize(){ return 0; };
+	int GetSize();
 
 	IIntSet* Union(IIntSet &other);
 

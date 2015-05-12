@@ -43,9 +43,16 @@ IIntSet *UnionIntSet::Union(IIntSet &other)
 	return new UnionIntSet((IIntSet *)this, &other);
 }
 
+int UnionIntSet::GetSize()
+{
+	return first->GetSize() + second->GetSize();
+}
+
 char *UnionIntSet::ToString()
 {
 	std::string newString;
+
+	//Gör en ToArray som tar pekarna från förra unionen och returnerar till en array
 	int *firstArray = first->ToArray();
 	int *secondArray = second->ToArray();
 	int i=0, j=0;

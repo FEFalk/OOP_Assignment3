@@ -24,9 +24,11 @@ void main()
 		cout << s2->ToString();
 		cout << endl << s1->ToString() << endl;
 	IIntSet *s3;
-	//Union funktion
+	//Union funktion first är s1 och second är s2
 	s3 = s1->Union(*s2);
-	
+	IIntSet *s4;
+	//s3 är first och s2 är second
+	s4 = s3->Union(*s2);
 	cout << s3->ToString() << endl;
 
 	return;
