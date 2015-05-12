@@ -10,6 +10,7 @@ public:
 
 	void Add(int elem){};
 	bool Contains(int elem);
+	
 	char *ToString();
 	int GetSize(){ return 0; };
 
@@ -17,6 +18,7 @@ public:
 
 
 private:
+	bool ContainsInBoth(int elem);
 	IIntSet *first;
 	IIntSet *second;
 
