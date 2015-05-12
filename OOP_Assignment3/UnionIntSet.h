@@ -23,6 +23,6 @@ private:
 	IIntSet *second;
 
 protected:
-	int *ToArray(){ return 0; };
+	int *ToArray();
 };
 

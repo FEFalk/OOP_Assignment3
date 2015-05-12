@@ -23,7 +23,7 @@ bool UnionIntSet::Contains(int elem)
 void UnionIntSet::Add(int elem)
 {
 	//We want to add to both because of Union. So when separated they still contain the new elem.
-	if (Contains(elem))
+	if (!Contains(elem))
 	{
 		first->Add(elem);
 		second->Add(elem);
@@ -52,7 +52,7 @@ char *UnionIntSet::ToString()
 {
 	std::string newString;
 	int *unionArray=ToArray();
-	for (int i = 0; first->GetSize() + second->GetSize();i++)
+	for (int i = 0; i < GetSize();i++)
 	{
 		newString.append(std::to_string(unionArray[i]));
 		newString.append(", ");
@@ -90,4 +90,5 @@ int *UnionIntSet::ToArray()
 		else
 			j++;
 	}
+	return newArray;
 }
