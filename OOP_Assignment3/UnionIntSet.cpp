@@ -29,6 +29,11 @@ bool UnionIntSet::ContainsInBoth(int elem)
 	return false;
 }
 
+IIntSet *UnionIntSet::Union(IIntSet &other)
+{
+	return new UnionIntSet((IIntSet *)this, &other);
+}
+
 char *UnionIntSet::ToString()
 {
 	std::string newString;

@@ -14,7 +14,7 @@ public:
 	char *ToString();
 	int GetSize(){ return 0; };
 
-	IIntSet* Union(IIntSet &other){ return 0; };
+	IIntSet* Union(IIntSet &other);
 
 
 private:

@@ -102,7 +102,7 @@ char *IntervalIntSet::ToString()
 
 IIntSet *IntervalIntSet::Union(IIntSet &other)
 {
-	return &other;
+	return new UnionIntSet((IIntSet *)this, &other);
 }
 
 int *IntervalIntSet::ToArray()
