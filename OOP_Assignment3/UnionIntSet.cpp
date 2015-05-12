@@ -24,18 +24,23 @@ bool UnionIntSet::Contains(int elem)
 char *UnionIntSet::ToString()
 {
 	std::string newString;
+	int *firstArray = first->ToArray();
+	int *secondArray = second->ToArray();
+	int i, j;
 
-	newString.append(first->ToString);
-	newString.append(second->ToString);
-
-	for (int i = 0; i < intervalArray.size(); i++)
+	while (firstArray[i] != 0 && secondArray[j] != 0)
 	{
-		if (first->Contains)
-		newString.append("[");
-		newString.append(std::to_string(intervalArray[i].start));
-		newString.append("..");
-		newString.append(std::to_string(intervalArray[i].destination));
-		newString.append("] ");
+		if (firstArray[i] >= secondArray[j]){
+			newString.append(std::to_string(firstArray[i]));
+			newString.append(", ");
+			i++;
+		}
+		else
+		{
+			newString.append(std::to_string(secondArray[j]));
+			newString.append(", ");
+			j++;
+		}
 	}
 
 	char *ret = new char[newString.size() + 1];
@@ -44,4 +49,9 @@ char *UnionIntSet::ToString()
 	chkd_test_array[newString.size()] = '\0';
 
 	return ret;
+}
+
+int *UnionIntSet::ToArray()
+{
+
 }
