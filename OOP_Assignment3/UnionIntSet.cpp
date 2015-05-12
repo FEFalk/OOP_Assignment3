@@ -20,6 +20,15 @@ bool UnionIntSet::Contains(int elem)
 
 	return false;
 }
+void UnionIntSet::Add(int elem)
+{
+	//We want to add to both because of Union. So when separated they still contain the new elem.
+	if (Contains(elem))
+	{
+		first->Add(elem);
+		second->Add(elem);
+	}
+}
 
 bool UnionIntSet::ContainsInBoth(int elem)
 {
@@ -32,6 +41,11 @@ bool UnionIntSet::ContainsInBoth(int elem)
 IIntSet *UnionIntSet::Union(IIntSet &other)
 {
 	return new UnionIntSet((IIntSet *)this, &other);
+}
+
+int UnionIntSet::GetSize()
+{
+	return first->GetSize() + second->GetSize();
 }
 
 char *UnionIntSet::ToString()

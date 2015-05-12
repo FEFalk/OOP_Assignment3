@@ -8,11 +8,11 @@ public:
 	UnionIntSet(IIntSet *first, IIntSet *second);
 	~UnionIntSet();
 
-	void Add(int elem){};
+	void Add(int elem);
 	bool Contains(int elem);
 	
 	char *ToString();
-	int GetSize(){ return 0; };
+	int GetSize();
 
 	IIntSet* Union(IIntSet &other);
 

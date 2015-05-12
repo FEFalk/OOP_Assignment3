@@ -126,3 +126,7 @@ int IntervalIntSet::GetSize()
 {
 	return individualSize;
 }
+IIntSet *IntervalIntSet::Union(IIntSet &other)
+{
+	return new UnionIntSet((IIntSet *)this, &other);
+}

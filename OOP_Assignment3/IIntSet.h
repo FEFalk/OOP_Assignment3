@@ -7,6 +7,7 @@ public:
 	/* The constructor */
 	IIntSet() {}
 
+	friend class UnionIntSet;
 	/* Returns whether this set includes the element 'elem' or not. */
     virtual bool Contains(int elem) = 0;
 
