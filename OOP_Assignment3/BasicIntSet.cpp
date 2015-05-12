@@ -86,6 +86,11 @@ char *BasicIntSet::ToString()
 	return ret;
 }
 
+int *BasicIntSet::ToArray()
+{
+	return basicSetArray;
+}
+
 IIntSet *BasicIntSet::Union(IIntSet &other)
 {
 	return new UnionIntSet((IIntSet *)this, &other);

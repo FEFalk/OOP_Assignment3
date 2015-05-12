@@ -20,5 +20,7 @@ public:
 
         /* Return an array of integers that contains all the individual values in this set. */
 	virtual char* ToString()=0;
+		//Returns the pointer of the array
+	virtual int* ToArray() = 0;
 };
 #endif

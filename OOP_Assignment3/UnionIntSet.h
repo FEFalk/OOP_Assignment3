@@ -11,6 +11,7 @@ public:
 	void Add(int elem);
 	bool Contains(int elem);
 	char *ToString();
+	int *ToArray();
 
 	IIntSet* Union(IIntSet &other);
 

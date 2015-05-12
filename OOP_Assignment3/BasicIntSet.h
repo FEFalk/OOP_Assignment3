@@ -16,6 +16,8 @@ public:
 	char *ToString();
 	
 	IIntSet* Union(IIntSet &other);
+protected:
+	int *ToArray();
 
 private:
 	void PushNumberAt(int elem, int index);
