@@ -102,6 +102,22 @@ char *IntervalIntSet::ToString()
 
 IIntSet *IntervalIntSet::Union(IIntSet &other)
 {
-
 	return &other;
+}
+
+int *IntervalIntSet::ToArray()
+{
+	int j = 0;
+	int *newArray = new int[];
+	for (int  i = 0; i < intervalArray.size(); i++)
+	{
+		for (int n = intervalArray[i].start; n <= intervalArray[i].destination; n++)
+		{
+			j++;
+			newArray = (int *)realloc(newArray, j);
+			newArray[j] = n;
+			
+		}
+	}
+	return newArray;
 }
