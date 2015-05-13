@@ -31,6 +31,7 @@ void main()
 
 		cout << s2->ToString();
 		cout << endl << s1->ToString() << endl;
+
 	IIntSet *s3;
 	s3 = s1->Union(*s2);
 

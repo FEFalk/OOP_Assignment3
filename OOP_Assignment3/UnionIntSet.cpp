@@ -61,7 +61,7 @@ char *UnionIntSet::ToString()
 {
 	std::string newString;
 	int *unionArray=ToArray();
-	for (int i = 0; i < GetSize();i++)
+	for (int i = 0; i < size; i++)
 	{
 		newString.append(std::to_string(unionArray[i]));
 		newString.append(", ");
@@ -92,7 +92,7 @@ int *UnionIntSet::ToArray()
 			i++;
 			n++;
 		}
-		else if (!ContainsInBoth(secondArray[j]))
+		else if (!ContainsInBoth(secondArray[j]) && j<second->GetSize())
 		{
 			newArray[n] = secondArray[j];
 			j++;
