@@ -3,7 +3,6 @@
 
 IntervalIntSet::IntervalIntSet()
 {
-
 }
 IntervalIntSet::~IntervalIntSet()
 {
@@ -26,6 +25,7 @@ void IntervalIntSet::Add(int elem)
 		if (elem == it->start - 1)
 		{
 			it->start = elem;
+			individualSize++;
 			break;
 		}
 
@@ -34,6 +34,7 @@ void IntervalIntSet::Add(int elem)
 		{
 			intervalArray.insert(it, Interval(elem, elem));
 			it = intervalArray.begin();
+			individualSize++;
 			break;
 		}
 
@@ -50,11 +51,15 @@ void IntervalIntSet::Add(int elem)
 			{
 				it->destination = elem;
 			}
+			individualSize++;
 			break;
 		}
 	}
 	if (it == intervalArray.end())
+	{
 		intervalArray.push_back(Interval(elem, elem));
+		individualSize++;
+	}
 }
 
 bool IntervalIntSet::Contains(int elem)
@@ -117,7 +122,6 @@ int *IntervalIntSet::ToArray()
 			j++;
 			newArray = (int *)realloc(newArray, sizeof(int)*j);
 			newArray[j-1] = n;
-			individualSize = j;
 		}
 	}
 	return newArray;

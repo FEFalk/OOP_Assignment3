@@ -8,6 +8,7 @@ public:
 	IIntSet() {}
 
 	friend class UnionIntSet;
+
 	/* Returns whether this set includes the element 'elem' or not. */
     virtual bool Contains(int elem) = 0;
 
@@ -24,7 +25,6 @@ public:
 
 	virtual int GetSize() = 0;
 
-	friend class UnionIntSet;
 
 protected:
 	virtual int *ToArray() = 0;
