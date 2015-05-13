@@ -33,6 +33,7 @@ void IntervalIntSet::Add(int elem)
 		else if (elem < it->start)
 		{
 			intervalArray.insert(it, Interval(elem, elem));
+			it = intervalArray.begin();
 			break;
 		}
 

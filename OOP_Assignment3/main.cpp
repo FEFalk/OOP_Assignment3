@@ -21,15 +21,25 @@ void main()
         s2->Add(101);
         s2->Add(102);
 
+		IIntSet *s5 = new IntervalIntSet();
+		s5->Add(20);
+		s5->Add(21);
+		s5->Add(22);
+		s5->Add(3);
+		s5->Add(1);
+		s5->Add(5);
+
 		cout << s2->ToString();
 		cout << endl << s1->ToString() << endl;
 	IIntSet *s3;
 	s3 = s1->Union(*s2);
 
 	IIntSet *s4;
-	s4 = s3->Union(*s2);
+	s4 = s3->Union(*s5);
 	
 	cout << s3->ToString() << endl;
+
+	cout << s4->ToString() << endl;
 
 	return;
 }
