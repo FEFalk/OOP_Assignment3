@@ -21,6 +21,7 @@ private:
 	bool ContainsInBoth(int elem);
 	IIntSet *first;
 	IIntSet *second;
+	int size;
 
 protected:
 	int *ToArray();

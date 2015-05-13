@@ -5,6 +5,15 @@ UnionIntSet::UnionIntSet(IIntSet *first, IIntSet *second)
 {
 	this->first = first;
 	this->second = second;
+
+	size = first->GetSize();
+	int *secondArray = second->ToArray();
+
+	for (int i = 0; i < second->GetSize(); i++)
+	{
+		if (!ContainsInBoth(secondArray[i]))
+			size++;
+	}
 }
 
 
@@ -45,7 +54,7 @@ IIntSet *UnionIntSet::Union(IIntSet &other)
 
 int UnionIntSet::GetSize()
 {
-	return first->GetSize() + second->GetSize();
+	return size;
 }
 
 char *UnionIntSet::ToString()
@@ -71,24 +80,27 @@ int *UnionIntSet::ToArray()
 	int *firstArray = first->ToArray();
 	int *secondArray = second->ToArray();
 
-	int *newArray = new int[first->GetSize() + second->GetSize()];
+	int *newArray = new int[size];
 
-	int i = 0, j = 0;
+	int i = 0, j = 0, n = 0;
 
-	while (i != first->GetSize() || j != second->GetSize())
+	while (i < first->GetSize() || j < second->GetSize())
 	{
 		if (firstArray[i] <= secondArray[j] && i<first->GetSize())
 		{
-			newArray[i + j] = firstArray[i];
+			newArray[n] = firstArray[i];
 			i++;
+			n++;
 		}
 		else if (!ContainsInBoth(secondArray[j]))
 		{
-			newArray[i + j] = secondArray[j];
+			newArray[n] = secondArray[j];
 			j++;
+			n++;
 		}
 		else
 			j++;
+		
 	}
 	return newArray;
 }
